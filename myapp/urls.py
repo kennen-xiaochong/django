@@ -9,8 +9,8 @@ urlpatterns=[
     #部门数据表路由
     path('add_dep_old/',add_dep_old),
     path('list_dep_old/',list_dep_old),
-#    path('del_dep_old/<int:dep_id>/',del_dep_old),
-##   path('edit_dep_old/<int:dep_id>/',edit_dep_old),
+    path('del_dep_old/<int:dep_id>/',del_dep_old),
+    path('edit_dep_old/<int:dep_id>/',edit_dep_old),
 
     #操作团体数据表路由
 #    path('add_group_old/',add_group_old),

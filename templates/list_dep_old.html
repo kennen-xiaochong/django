@@ -8,7 +8,7 @@
 <div align="center">
     <h1>部门列表</h1>
     <hr>
-    <div><a herf="/test_orm_old/add_dep_old">增加一条记录</a></div>
+    <div><a href="/test_orm_old/add_dep_old">增加一条记录</a></div>
     <table border="1">
         <thead>
         <tr>
@@ -19,7 +19,7 @@
         </thead>
         <tbody>
     <!--#dep_list即为视图函数list_dep_old()中render()的传输参数//-->
-        {%  for dep in dep_deplist  %}
+        {%  for dep in dep_list  %}
         <tr>
             <td>{{ dep.dep_name }}</td>
             <td>{{ dep.dep_script }}</td>
