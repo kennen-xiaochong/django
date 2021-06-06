@@ -8,22 +8,22 @@
 <div align="center">
     <h1>团体列表</h1>
     <hr>
-    <div><a href="/test_orm_old/add_group_old">增加一条记录<a></div>
+    <div><a href="/test_orm_old/add_group_old">增加一条记录</a></div>
     <table border="2">
         <thead>
         <tr>
-            <td>团体名称</td>td>
-            <td>备注说明</td>td>
+            <td>团体名称</td>
+            <td>备注说明</td>
             <td colspan="2">操作</td>
         </tr>
         </thead>
         <tbody>
         {% for group in group_list %}
         <tr>
-            <td>{{ group.group_name }}<td>
+            <td>{{ group.group_name }}</td>
             <td>{{ group.group_script }}</td>
-            <td><a href="/test_old_orm/edit_group_old/{{ group.id} }}">修改</a></td>
-            <td><a href="/test_old_orm/del_group_old"/{{ group.id} }}">删除</a></td>
+            <td><a href="/test_orm_old/edit_group_old/{{ group.id }}">修改</a></td>
+            <td><a href="/test_orm_old/del_group_old/{{ group.id }}">删除</a></td>
         </tr>
         {% empty %}
             <tr>
@@ -31,9 +31,6 @@
             <tr>
         {% endfor %}
     </table>
-</div>
-
-
 </div>
 
 </body>
