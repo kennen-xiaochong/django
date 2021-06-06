@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改团体名称</title>
+</head>
+<body>
+<div align="center">
+    <div><h1>修改团体名称</h1></div>
+    <hr>
+    <form action="" method="POST">
+        {%  csrf_token  %}
+        <input type="hidden" name="id" id="id" value="{{ group_object.id }}">
+        <div>
+            <label>团体名称</label>
+            <input type="text" name="group_name" id="group_name" value={{ group_object.group_name }}>
+        </div>
+        <br>
+        <div>
+            <label>备注说明</label>
+            <input type="text" name="group_script" id="group_script" value={{ group_object.group_script }}>
+        </div>
+        <br>
+        <div>
+            <input type="submit" vlaue="提交">
+        </div>
+    </form>
+    {{ error_info }}
+</div>
+</body>
+</html>
