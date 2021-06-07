@@ -10,9 +10,12 @@
     <hr>
     <form action="" method="POST">
         <LABEL>手机</LABEL>
-            <input type="text" name="phone" id="phone" value={{ info_id }}>
+            <input type="text" name="phone" id="phone" value="{{ employinfo.phtone }}">
         <label>地址</label>
-            <input type="text" name="address" id="address" value={{ info_id }}>
+            <input type="text" name="address" id="address" value="{{ employinfo.address }}">
+        <input type="submit" value="保存">
+    <hr>
+        <div style="color:red">{{ error_info }}</div>
 </div>
 </body>
 </html>
