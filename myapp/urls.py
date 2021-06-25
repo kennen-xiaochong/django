@@ -1,10 +1,10 @@
 from django.urls import path,include
 from myapp.views import *
 urlpatterns=[
-#    path('list_employee_old/',list_employee_old),
-#   path('add_employee_old/',add_employee_old),
-#    path('edit_employee_old/<int:emp_id>/',edit_employee_old),
-#    path('del_employee_old/<int:emp_id>/',delete_employee_old),
+    path('list_employee_old/',list_employee_old),
+   path('add_employee_old/',add_employee_old),
+    path('edit_employee_old/<int:emp_id>/',edit_employee_old),
+    path('del_employee_old/<int:emp_id>/',del_employee_old),
 
     #部门数据表路由
     path('add_dep_old/',add_dep_old),
@@ -22,4 +22,7 @@ urlpatterns=[
     path('list_employinfo_old/',list_employinfo_old),
     path('del_employinfo_old/<int:info_id>/',del_employinfo_old),
     path('edit_employinfo_old/<int:info_id>/',edit_employinfo_old),
+
+    #外键操作关联表测试
+    path('test_foreign/',test_foreign),
      ]

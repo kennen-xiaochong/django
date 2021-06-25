@@ -130,5 +130,43 @@ def list_employee_old(request):
 def del_employee_old(request,emp_id):
     employee.objects.filter(id=emp_id).delete()
     return  redirect('/test_orm_old/list_employee_old')
-
 def add_employee_old(request):
+    if request.method=='POST':
+        name=request.POST.get("name")
+        email=request.POST.get("email")
+        dep=request.POST.get('dep')
+        info=request.POST.get('info')
+        salary=request.POST.get('salary')
+        groups=request.POST.getlist('group')
+        new_emp=employee.objects.create(name=name,email=email,salary=salary,dep_id=dep,info_id=info)
+        new_emp.group.set(groups)
+        return redirect('/test_orm_old/list_employee_old/')
+    dep_list=department.objects.all()
+    group_list=group.objects.all()
+    info_list=employinfo.objects.all()
+    return render(request,'add_employee_old.html',{'dep_list':dep_list,'group_list':group_list,'info_list':info_list})
+
+def edit_employee_old(request,emp_id):
+    emp_list=employee.objects.get(id=emp_id)
+    if request.method=='POST':
+        name=request.POST.get("name")
+        email=request.POST.get("email")
+        dep=request.POST.get('dep')
+        info=request.POST.get('info')
+        salary=request.POST.get('salary')
+        groups=request.PSOT.get('group')
+        new_emp=employee.objects.create(name=name,email=email,salary=salary,dep_id=dep,info_id=info)
+        new_emp.group.set(groups)
+        return redirect('/test_orm_old/list_employee_old/')
+    dep_list=department.objects.all()
+    group_list=group.objects.all()
+    info_list=employinfo.objects.all()
+    return render(request,'edit_employee_old.html',{'emp':emp_list,'dep_list':dep_list,'group_list':group_list,'info_list':info_list})
+
+def test_foreign(request):
+    emp=employee.objects.get(id=2)
+    dep_name=emp.dep.dep_name
+    dep_obj=department.objects.get(id=2)
+    emp_list=dep_obj.employee_set.all()
+    emp_names=[emp.name for emp in emp_list]
+    return HttpResponse('1.正向关联：员工名称：{0}，所在部门名称：{1}<br> 2.反向查找：部门名称：{2}，部门员工：{3}'.format(emp.name,dep_name,dep_obj.dep_name,emp_names))

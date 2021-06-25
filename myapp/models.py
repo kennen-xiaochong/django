@@ -7,7 +7,8 @@ class employee(models.Model):
     email=models.EmailField(verbose_name='邮箱')
     dep=models.ForeignKey(to='department',on_delete=models.CASCADE)
     salary=models.DecimalField(max_digits=8,decimal_places=2)
-    info=models.OneToOneField(to='employee',on_delete=models.CASCADE,null=True)
+    group=models.ManyToManyField(to='group')
+    info=models.OneToOneField(to='employinfo',on_delete=models.CASCADE,null=True)
 class department(models.Model):
     dep_name=models.CharField(max_length=32,verbose_name='部门名称')
     dep_script=models.CharField(max_length=60,verbose_name="备注")

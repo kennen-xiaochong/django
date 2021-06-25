@@ -5,7 +5,7 @@
     <title>增加员工</title>
 </head>
 <body>
-<div>
+<div align="center">
     <h1>增加员工</h1>
     <hr>
     <div><a href="/test_orm_old/add_employee_old">增加一条记录</a>
@@ -27,7 +27,7 @@
             <td>{{ emp.name }}</td>
             <td>{{ emp.email }}</td>
             <td>{{ emp.salary }}</td>
-            <td>{{ emp.info.salary }}</td>
+            <td>{{ emp.info.address }}</td>
             <td>{{ emp.dep.dep_name }}</td>
             <td>
                 {% for gp in emp.group.all %}
