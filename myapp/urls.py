@@ -25,4 +25,6 @@ urlpatterns=[
 
     #外键操作关联表测试
     path('test_foreign/',test_foreign),
+    path('test_url/<int:year>/<int:month>',test_url),
+    path('test_detailview/<int:dep_id>',test_detailview.as_view()),
      ]

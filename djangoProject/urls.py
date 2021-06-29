@@ -23,4 +23,5 @@ urlpatterns = [
     path('index/',views.index),
     path('test/',views.test),
     path('test_orm_old/',include('myapp.urls')),
+    path('test_orm_old/',include('test_view.urls'))
 ]

@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect,HttpResponse
-from .models import employee,department,group,employinfo
+from .models import department,employee,employinfo,group
+from django.views.generic import DetailView,ListView,TemplateView
 import os
 # Create your views here.
 def index(request):
@@ -170,3 +171,13 @@ def test_foreign(request):
     emp_list=dep_obj.employee_set.all()
     emp_names=[emp.name for emp in emp_list]
     return HttpResponse('1.正向关联：员工名称：{0}，所在部门名称：{1}<br> 2.反向查找：部门名称：{2}，部门员工：{3}'.format(emp.name,dep_name,dep_obj.dep_name,emp_names))
+def test_url(request,year,month):
+    year1=str(year)
+    month1=str(month)
+    return render(request,'test_url.html',{'year':year1,'month':month1})
+
+class test_detailview(DetailView):
+    model=department
+    template_name='test_detaiview.html'
+    context_object_name = 'dep'
+    pk_url_kwarg = 'dep_id'
